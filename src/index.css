@@ -9,6 +9,9 @@
 button:focus{
   outline: none;
 }
+button:active{
+  transform: scale(0.98);
+}
 
 
 /* Header stylings */
@@ -26,47 +29,54 @@ header button{
 }
 
 
-
-/* burger stylings */
-.mv-right{
-  transform: translateX(4px);
+/* the main part */
+.main{
+  display: flex;
+  flex-direction: row;
+  border-top: 10px solid #7d4c3a;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(133, 102, 78);
+  padding: 20px;
+  height: 70vh;
 }
-
+/* burger stylings */
 .burger{
-  width: 250px;
-  margin: 0px auto;
+  width: 40%;
+  background-color: white;
+  padding: 50px 0px;
+  border-radius: 10px;
 }
 .burger .salad,
 .burger .bacon,
 .burger .cheese, 
 .burger .meat {
-
   margin: 5px auto;
 }
 
 .salad{
-  width: 100%;
+  width: 220px;
   height: 10px;
   background-color: #6baf23;
   border-radius: 10px;
 }
 
 .bacon{
-  width: 90%;
+  width: 220px;
   height: 5px;
   background-color: #7d4c3a;
   border-radius: 5px;
 }
 
 .cheese{
-  width: 95%;
+  width: 220px;
   height: 10px;
   background-color: #e1bc4a;
   border-radius: 0px;
 }
 
 .meat{
-  width: 80%;
+  width: 180px;
   height: 14px;
   background-color: brown;
   border-radius: 5px;
@@ -79,11 +89,40 @@ header button{
 /* terminal */
 .terminal{
   background-color: var(--header-color);
-  margin: 0px auto;
+  border-radius: 10px;
+  margin-left: 20px;
+  width: 500px;
+}
+.terminal .btn-group h2{
+  width: 80px;
 }
 .terminal .btn{
-  background-color: brown;
+  background-color: #784636;
+  color: hsl(15 38% 85% / 1);
   padding: 6px 20px;
   border-radius: 5px;
-  margin: 0px 10px;
+  margin: 0px 6px;
+}
+
+
+/* utility classes */
+
+.bg-secondary{
+  background-color: #6baf23;
+}
+
+
+
+@media (max-width: 800px){
+  .main{
+    flex-direction: column;
+    height: auto;
+  }
+  .main .terminal{
+    margin-left: 0px;
+  }
+  .main .burger{
+    margin-bottom: 20px;
+    width: 300px;
+  }
 }

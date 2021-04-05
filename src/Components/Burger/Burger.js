@@ -11,10 +11,10 @@ const Burger = (props) => {
     }
   }
   return (
-    <div className='burger p-4'>
+    <div className='burger'>
       <img src={top} alt="burger top" className='block mx-auto'/>
-      { ingredients.length > 0 ? ingredients : <h2>Please start adding ingredients</h2> }
-      <img src={btm} alt="burger bottom" className='block mx-auto mv-right'/>
+      { ingredients.length > 0 ? ingredients : <h2 className='text-center my-3 opacity-70'>Please start adding ingredients</h2> }
+      <img src={btm} alt="burger bottom" className='block mx-auto'/>
     </div>
   );
 };
