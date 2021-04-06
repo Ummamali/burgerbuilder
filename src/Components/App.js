@@ -6,6 +6,8 @@ import React from 'react';
 import Header from './Header/Header';
 import Burger from './Burger/Burger';
 import Terminal from './Terminal/Terminal';
+import Menu from './Menu/Menu';
+import Bill from './Bill/Bill';
 
 
 
@@ -13,6 +15,8 @@ export default class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      menuToggled: false,
+      billToggled: false,
       burgerIng: {
         salad: 0,
         bacon: 0,
@@ -25,14 +29,28 @@ export default class App extends React.Component{
 
   render(){
     return (
-      <>
-        <Header />
+      <div className='min-h-screen flex flex-col'>
+        <Bill toggled={this.state.billToggled} items={this.state.burgerIng} toggleBill={this.toggleBill}/>
+        <Menu toggled={this.state.menuToggled} toggleMenu={this.toggleMenu}/>
+        <Header toggleMenu={this.toggleMenu}/>
         <div className='main'>
-        <Burger ingredients={this.state.burgerIng}/>
-        <Terminal total={20} ingNames={this.ingNames} changeAmount={this.changeAmount}/>
+          <Burger ingredients={this.state.burgerIng}/>
+          <Terminal total={20} ingNames={this.ingNames} changeAmount={this.changeAmount} toggleBill={this.toggleBill}/>
         </div>
-      </>
+      </div>
     );
+  }
+
+  toggleMenu = () => {
+    this.setState(old => {
+      return { menuToggled: !old.menuToggled };
+    });
+  }
+
+   toggleBill = () => {
+    this.setState(old => {
+      return { billToggled: !old.billToggled };
+    });
   }
 
   changeAmount = (e) => {

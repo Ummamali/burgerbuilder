@@ -13,6 +13,29 @@ button:active{
   transform: scale(0.98);
 }
 
+/* The hamburger menu */
+.menu{
+  position: fixed;
+  height: 100vh;
+  width: 300px;
+  background-color: #673d2f;
+  box-shadow: 5px 0px 15px 3px rgba(0, 0, 0, 0.241);
+  transform: translateX(-100%);
+  transition: transform 500ms ease-out;
+}
+.menu h2{
+  color: var(--header-color);
+}
+.menu ul{
+  color: rgb(215, 169, 130);
+}
+.menu button{
+  color: #c8a94a;
+  font-size: 1.1rem;
+}
+.menu.toggled{
+  transform: translateX(0px);
+}
 
 /* Header stylings */
 header{
@@ -38,7 +61,9 @@ header button{
   justify-content: center;
   background-color: rgb(133, 102, 78);
   padding: 20px;
-  height: 70vh;
+
+  /* to get the remaining height */
+  flex-grow: 1;
 }
 /* burger stylings */
 .burger{
@@ -105,6 +130,14 @@ header button{
 }
 
 
+/* the bill ans its container */
+.bill-contain{
+  z-index: -1;
+}
+.bill-contain.active{
+  z-index: 10;
+}
+
 /* utility classes */
 
 .bg-secondary{
@@ -112,7 +145,7 @@ header button{
 }
 
 
-
+/* media queries */
 @media (max-width: 800px){
   .main{
     flex-direction: column;
@@ -123,6 +156,6 @@ header button{
   }
   .main .burger{
     margin-bottom: 20px;
-    width: 300px;
+    width: 400px;
   }
 }

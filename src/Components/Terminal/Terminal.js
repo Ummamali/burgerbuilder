@@ -11,7 +11,7 @@ const Terminal = (props) => {
             return <BtnGroup name={name[0].toUpperCase() + name.slice(1)} ingName={name} key={name+idx} changeAmount={props.changeAmount}/>
           })}
         </div>
-        <button className='bg-secondary py-2 px-8 rounded text-green-50 mt-6'>Checkout</button>
+        <button className='bg-secondary py-2 px-8 rounded text-green-50 mt-6' onClick={props.toggleBill}>Checkout</button>
     </div>
   );
 }

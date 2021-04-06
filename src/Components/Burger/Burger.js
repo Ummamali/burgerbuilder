@@ -13,7 +13,7 @@ const Burger = (props) => {
   return (
     <div className='burger'>
       <img src={top} alt="burger top" className='block mx-auto'/>
-      { ingredients.length > 0 ? ingredients : <h2 className='text-center my-3 opacity-70'>Please start adding ingredients</h2> }
+      { ingredients.length > 0 ? ingredients : <h2 className='text-center my-3 text-gray-500'>Please start adding ingredients</h2> }
       <img src={btm} alt="burger bottom" className='block mx-auto'/>
     </div>
   );
