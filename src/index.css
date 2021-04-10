@@ -128,9 +128,14 @@ header button{
   border-radius: 5px;
   margin: 0px 6px;
 }
+.terminal .btn:disabled,
+.terminal button:disabled{
+  opacity: 0.7;
+  cursor: default;
+}
 
 
-/* the bill ans its container */
+/* the bill and its container */
 .bill-contain{
   z-index: -1;
 }

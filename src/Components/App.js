@@ -31,7 +31,6 @@ export default class App extends React.Component{
         meat:0
       }
     };
-    this.ingNames = Object.keys(this.state.burgerIng);
   }
 
   render(){
@@ -42,7 +41,7 @@ export default class App extends React.Component{
         <Header toggleMenu={this.toggleMenu}/>
         <div className='main'>
           <Burger ingredients={this.state.burgerIng}/>
-          <Terminal total={this.state.price} ingNames={this.ingNames} changeAmount={this.changeAmount} toggleBill={this.toggleBill}/>
+          <Terminal total={this.state.price} ings={this.state.burgerIng} changeAmount={this.changeAmount} toggleBill={this.toggleBill}/>
         </div>
       </div>
     );
