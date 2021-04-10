@@ -13,4 +13,4 @@ const Header = ({hamClicked, toggleMenu}) => {
 
 
 
-export default Header;
+export default React.memo(Header);

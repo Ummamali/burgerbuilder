@@ -14,9 +14,16 @@ import Bill from './Bill/Bill';
 export default class App extends React.Component{
   constructor(props){
     super(props);
+    this.prices = {
+      salad: 10,
+      bacon: 20,
+      cheese: 30,
+      meat: 50
+    };
     this.state = {
       menuToggled: false,
       billToggled: false,
+      price: 0,
       burgerIng: {
         salad: 0,
         bacon: 0,
@@ -30,12 +37,12 @@ export default class App extends React.Component{
   render(){
     return (
       <div className='min-h-screen flex flex-col'>
-        <Bill toggled={this.state.billToggled} items={this.state.burgerIng} toggleBill={this.toggleBill}/>
+        <Bill toggled={this.state.billToggled} items={this.state.burgerIng} toggleBill={this.toggleBill} price={this.state.price}/>
         <Menu toggled={this.state.menuToggled} toggleMenu={this.toggleMenu}/>
         <Header toggleMenu={this.toggleMenu}/>
         <div className='main'>
           <Burger ingredients={this.state.burgerIng}/>
-          <Terminal total={20} ingNames={this.ingNames} changeAmount={this.changeAmount} toggleBill={this.toggleBill}/>
+          <Terminal total={this.state.price} ingNames={this.ingNames} changeAmount={this.changeAmount} toggleBill={this.toggleBill}/>
         </div>
       </div>
     );
@@ -53,10 +60,10 @@ export default class App extends React.Component{
     });
   }
 
+
   changeAmount = (e) => {
     const ingredientName = e.target.dataset.ingname;
     const amount = parseInt(e.target.dataset.amount);
-    console.log(ingredientName, amount);
     this.setState(prev => {
       const burgerIng = {...prev.burgerIng};
       if(amount === -1 && burgerIng[ingredientName] <= 0){
@@ -64,7 +71,8 @@ export default class App extends React.Component{
         return { burgerIng };
       }
       burgerIng[ingredientName] += amount;
-      return { burgerIng };
+      const price = prev.price + (amount * this.prices[ingredientName]);
+      return { burgerIng, price };
     });
   }
 }

@@ -12,4 +12,4 @@ const BtnGroup = (props) => {
   );
 }
 
-export default BtnGroup;
+export default React.memo(BtnGroup);
